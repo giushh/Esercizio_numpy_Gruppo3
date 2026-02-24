@@ -1,0 +1,13 @@
+*********** Gestione file - Gabriele con csv e pandas ***********
+
+carica_array(n) che restituisce un array
+per prelevare i numeri  che riempiono l'array, n è scelto da utente
+
+salva_risultati(risultati, nome file)  dove risultati è una stringa da salvare (sia per array che per matrice)
+
+carica_matrice(righe, colonne) che restituisce una matrice
+
+
+
+*********** Analisi 1D e Analisi 2D - Ilaria ***********
+ 
