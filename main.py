@@ -24,7 +24,7 @@ def main():
 
                 salva = input("Vuoi salvare i risultati? (s/n)\n> ").lower()
                 if salva == "s":
-                    nome_file = input("Nome file txt\n> ")
+                    nome_file = input("Nome file\n> ")
                     salva_risultati(risultati, nome_file)
 
             case "2":
@@ -37,7 +37,7 @@ def main():
 
                 salva = input("Vuoi salvare i risultati? (s/n)\n> ").lower()
                 if salva == "s":
-                    nome_file = input("Nome file txt\n> ")
+                    nome_file = input("Nome file\n> ")
                     salva_risultati(risultati, nome_file)
 
             case "3":
