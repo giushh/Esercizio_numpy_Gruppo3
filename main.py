@@ -1,4 +1,9 @@
 
+"""
+DISCLAIMER
+è da completare, abbiamo unito i pezzi ma dobbiamo farli funzionare insieme
+"""
+
 import Gabriele.csv_manager
 import Ilaria.analisi
 
@@ -17,28 +22,28 @@ def main():
         match scelta:
             case "1":
                 n = int(input("\nNumero valori (N) da prelevare da file\n> "))
-                arr = Prendi_numeri_casuali(n)
+                arr = Gabriele.csv_manager.Prendi_numeri_casuali(n)
 
-                risultati = esegui_analisi_1d(arr)
+                risultati = Ilaria.analisi.esegui_analisi_1d(arr)
                 print("\n" + risultati)
 
                 salva = input("Vuoi salvare i risultati? s/n)\n> ").lower()
                 if salva == "s":
                     nome_file = input("Nome file\n> ")
-                    salva_risultati(risultati, nome_file)
+                    Gabriele.csv_manager.salva_risultati(risultati, nome_file)
 
             case "2":
                 righe = int(input("\nNumero righe (N) da prelevare da file\n> "))
                 colonne = int(input("Numero colonne (M) da prelevare da file\n> "))
-                mat = carica_matrice_2d(righe, colonne)
+                mat = Ilaria.analisi.carica_matrice_2d(righe, colonne)
 
-                risultati = esegui_analisi_2d(mat)
+                risultati = Ilaria.analisi.esegui_analisi_2d(mat)
                 print("\n" + risultati)
 
                 salva = input("Vuoi salvare i risultati? (s/n)\n> ").lower()
                 if salva == "s":
                     nome_file = input("Nome file\n> ")
-                    salva_risultati(risultati, nome_file)
+                    Gabriele.csv_manager.salva_risultati(risultati, nome_file)
 
             case "3":
                 print("\n-- Uscita")
