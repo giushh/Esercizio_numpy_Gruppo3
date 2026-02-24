@@ -22,7 +22,9 @@ def analisi_1d_posizionale(arr):
     indice_min = int(np.argmin(arr))
     indice_max = int(np.argmax(arr))
 
-    p25 = np.percentile(arr, 25)
+    # mediana - indice di posizione statistico che rappresenta 
+    # il valore centrale in una serie di dati numerici
+    p25 = np.percentile(arr, 25)  
     p50 = np.percentile(arr, 50)
     p75 = np.percentile(arr, 75)
 
@@ -39,7 +41,7 @@ def analisi_1d_searchsorted(arr, valore):
     posizione = int(np.searchsorted(arr_ordinato, valore))
 
     testo = ""
-    testo += "--- searchsorted (1D) ---\n"
+    testo += "--- Posizioni relative (1D) ---\n"
     testo += f"Valore: {valore}\n"
     testo += f"Posizione ordinata: {posizione}\n"
     return testo
@@ -53,7 +55,7 @@ def esegui_analisi_1d(arr):
     testo += analisi_1d_statistiche_base(arr) + "\n"
     testo += analisi_1d_posizionale(arr) + "\n"
 
-    valore = float(input("\nInserisci un valore per searchsorted\n> "))
+    valore = float(input("\nInserisci un valore per trovare posizione ordinata di inserimento\n> "))
     testo += analisi_1d_searchsorted(arr, valore) + "\n"
 
     return testo
@@ -70,10 +72,10 @@ def analisi_2d_assi(mat):
 
     testo = ""
     testo += "--- Analisi per assi (2D) ---\n"
-    testo += f"Somma colonne (axis=0): {somma_colonne}\n"
-    testo += f"Somma righe (axis=1): {somma_righe}\n"
-    testo += f"Media colonne (axis=0): {media_colonne}\n"
-    testo += f"Media righe (axis=1): {media_righe}\n"
+    testo += f"Somma colonne: {somma_colonne}\n"
+    testo += f"Somma righe: {somma_righe}\n"
+    testo += f"Media colonne: {media_colonne}\n"
+    testo += f"Media righe: {media_righe}\n"
     return testo
 
 
@@ -84,7 +86,7 @@ def analisi_2d_operazioni(mat):
     testo = ""
     testo += "--- Operazioni matriciali (2D) ---\n"
     testo += f"Trasposta:\n{trasposta}\n"
-    testo += f"Norma (Frobenius): {norma}\n"
+    testo += f"Norma: {norma}\n"
     return testo
 
 
@@ -93,7 +95,7 @@ def analisi_2d_prodotto(mat):
     testo += "--- Prodotto matriciale (2D) ---\n"
 
     if mat.shape[0] != mat.shape[1]:
-        testo += "Prodotto mat·mat non eseguibile (matrice non quadrata).\n"
+        testo += "Prodotto mat·mat non eseguibile.\n"
         return testo
 
     prodotto = np.dot(mat, mat)

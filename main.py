@@ -3,7 +3,7 @@ import Gabriele.csv_manager
 import Ilaria.analisi
 
 def main():
-    print("****** Esercizio 1 - Sistema analisi  *****")
+    print("****** Esercizio - Sistema analisi  *****")
 
     stop = False
     while not stop:
@@ -28,14 +28,14 @@ def main():
                     salva_risultati(risultati, nome_file)
 
             case "2":
-                righe = int(input("\nNumero righe (N)\n> "))
-                colonne = int(input("Numero colonne (M)\n> "))
+                righe = int(input("\nNumero righe (N) da prelevare da file\n> "))
+                colonne = int(input("Numero colonne (M) da prelevare da file\n> "))
                 mat = carica_matrice_2d(righe, colonne)
 
                 risultati = esegui_analisi_2d(mat)
                 print("\n" + risultati)
 
-                salva = input("Vuoi salvare i risultati in TXT? (s/n)\n> ").lower()
+                salva = input("Vuoi salvare i risultati? (s/n)\n> ").lower()
                 if salva == "s":
                     nome_file = input("Nome file txt\n> ")
                     salva_risultati(risultati, nome_file)
