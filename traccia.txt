@@ -1,0 +1,48 @@
+Andare a creare un sistema che prenda in input dei file .txt o .csv (uno o entrambi). Deve poter eseguire una o più tipologie di analisi presenti nella parte destra, coerenti col tipo di dato fornito. Alla fine deve POTER salvare un file dello stesso tipo o di tipo .txt. Deve potersi ripetere.
+
+EXTRA: Isolare le singole tipologie di analisi e renderle applicabili su dati di tipo non coerente.
+Analisi su array monodimensionali (1D)
+
+    Statistiche di base:
+
+        np.min(arr) → valore minimo
+
+        np.max(arr) → valore massimo
+
+        np.mean(arr) → media
+
+        np.std(arr) → deviazione standard
+
+    Analisi posizionale (ricerche, argmin, argmax, percentili):
+
+        np.argmin(arr) → indice del valore minimo
+
+        np.argmax(arr) → indice del valore massimo
+
+        np.percentile(arr, 50) → mediana
+
+        np.searchsorted(arr, x) → trovare posizione ordinata di inserimento
+
+Analisi su array multidimensionali (2D o superiori)
+
+    Analisi per assi (somme, medie, aggregazioni):
+
+        np.sum(matrix, axis=0) → somma per colonne
+
+        np.sum(matrix, axis=1) → somma per righe
+
+        np.mean(matrix, axis=0) → media colonnare
+
+        np.mean(matrix, axis=1) → media riga per riga
+
+    Operazioni matriciali e algebriche:
+
+        np.dot(A, B) → prodotto matriciale
+
+        np.transpose(A) → trasposizione
+
+        np.linalg.norm(A) → norma della matrice
+
+        np.cov(A.T) → matrice di covarianza
+message.txt
+3 KB
