@@ -17,12 +17,12 @@ def main():
         match scelta:
             case "1":
                 n = int(input("\nNumero valori (N) da prelevare da file\n> "))
-                arr = carica_array_1d(n)
+                arr = Prendi_numeri_casuali(n)
 
                 risultati = esegui_analisi_1d(arr)
                 print("\n" + risultati)
 
-                salva = input("Vuoi salvare i risultati? (s/n)\n> ").lower()
+                salva = input("Vuoi salvare i risultati? s/n)\n> ").lower()
                 if salva == "s":
                     nome_file = input("Nome file\n> ")
                     salva_risultati(risultati, nome_file)
