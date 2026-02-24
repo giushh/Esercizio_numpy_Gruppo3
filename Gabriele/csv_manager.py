@@ -11,7 +11,7 @@ carica_matrice(righe, colonne) che restituisce una matrice'''
 import pandas as pd
 import os
 import numpy as np
-
+import random
 
 #carica csv
 def load_csv(filepath: str):
@@ -45,7 +45,39 @@ def show_csv(percorso):
         print("Operazione annullata per errore nel caricamento.")
         
         
+def Riempi_con_casuali(nome_file, quante_righe):
+    """Crea un file CSV nuovo con il nome scelto dall'utente e lo riempie di numeri casuali."""
+    try:
+        # Assicuriamoci che il nome abbia l'estensione .csv
+        if not nome_file.endswith('.csv'):
+            nome_file += ".csv"
+
+        # Generiamo i numeri casuali (es. da 1 a 1000)
+        dati = np.random.randint(1, 1001, size=quante_righe)
         
+        # Creiamo il DataFrame
+        df_nuovo = pd.DataFrame(dati, columns=['Numeri_Casuali'])
+        
+        # Salvataggio
+        df_nuovo.to_csv(nome_file, index=False)
+        
+        print(f"\n[OK] Generato file: {nome_file} con {quante_righe} valori.")
+        return nome_file
+
+    except Exception as e:
+        print(f"Errore durante la creazione del file '{nome_file}': {e}")
+        return None
+
+
+
+
+
+
+
+
+
+
+ 
 #estrazione casuale        
 def Prendi_numeri_casuali(percorso,n):
     df_ris =load_csv(percorso) 
@@ -57,12 +89,19 @@ def Prendi_numeri_casuali(percorso,n):
             
             quantitaU = n
             
-            if 0 < quantitaU <= max_righe:
-                estratti = df_ris.sample(n=quantitaU)
-                print(f"\n--- Ecco i {quantitaU} numeri estratti ---")
-                print(estratti)
+            if 0 < n <= max_righe:
+                estratti_df = df_ris.sample(n=n)
                 
-                return estratti
+                array_numpy = estratti_df.values.flatten()
+                
+                print(f"\n--- Estratti {n} numeri e convertiti in Array ---")
+                return array_numpy
+                
+                
+                
+                
+                
+              
             else:
                 print("Numero non valido.")
                 return None
@@ -78,6 +117,7 @@ def Prendi_numeri_casuali(percorso,n):
 
 
 #creazione array 1d
+'''
 def carica_array(df_estratti):
     
     if df_estratti is not None:
@@ -85,7 +125,7 @@ def carica_array(df_estratti):
         array_1d = df_estratti.values.flatten()
         return array_1d
     return None
-
+'''
 
 
 #creazione matrice 
