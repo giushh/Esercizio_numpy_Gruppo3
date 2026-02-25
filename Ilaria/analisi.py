@@ -1,5 +1,19 @@
-
 import numpy as np
+import Gabriele.csv_manager
+
+
+def carica_matrice_2d(percorso, righe, colonne):
+    if righe <= 0 or colonne <= 0:
+        return None
+
+    n = righe * colonne
+    arr = Gabriele.csv_manager.Prendi_numeri_casuali(percorso, n)
+    if arr is None or arr.size != n:
+        return None
+
+    mat = np.reshape(arr, (righe, colonne))
+    return mat
+
 
 # analisi 1D
 
@@ -22,9 +36,7 @@ def analisi_1d_posizionale(arr):
     indice_min = int(np.argmin(arr))
     indice_max = int(np.argmax(arr))
 
-    # mediana - indice di posizione statistico che rappresenta 
-    # il valore centrale in una serie di dati numerici
-    p25 = np.percentile(arr, 25)  
+    p25 = np.percentile(arr, 25)
     p50 = np.percentile(arr, 50)
     p75 = np.percentile(arr, 75)
 
@@ -48,6 +60,9 @@ def analisi_1d_searchsorted(arr, valore):
 
 
 def esegui_analisi_1d(arr):
+    if arr is None:
+        return "Dati non coerenti: array mancante.\n"
+
     if arr.ndim != 1 or arr.size == 0:
         return "Dati non coerenti: serve un array 1D non vuoto.\n"
 
@@ -55,7 +70,11 @@ def esegui_analisi_1d(arr):
     testo += analisi_1d_statistiche_base(arr) + "\n"
     testo += analisi_1d_posizionale(arr) + "\n"
 
-    valore = float(input("\nInserisci un valore per trovare posizione ordinata di inserimento\n> "))
+    valore = float(input(
+        "\nInserisci un numero.\n"
+        "Il programma ti dirà in che posizione andrebbe inserito\n"
+        "se i numeri fossero ordinati dal più piccolo al più grande.\n> "
+    ))
     testo += analisi_1d_searchsorted(arr, valore) + "\n"
 
     return testo
@@ -113,6 +132,9 @@ def analisi_2d_covarianza(mat):
 
 
 def esegui_analisi_2d(mat):
+    if mat is None:
+        return "Dati non coerenti: matrice mancante.\n"
+
     if mat.ndim != 2 or mat.size == 0:
         return "Dati non coerenti: serve una matrice 2D non vuota.\n"
 
@@ -123,5 +145,3 @@ def esegui_analisi_2d(mat):
     testo += analisi_2d_covarianza(mat) + "\n"
 
     return testo
-
-

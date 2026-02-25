@@ -85,7 +85,7 @@ def Prendi_numeri_casuali(percorso,n):
     if df_ris is not None:
         try:
             max_righe = len(df_ris)
-            print(f"il file ha tot righe: {max_righe}")
+            print(f"il file ha in totale righe: {max_righe}")
             
             quantitaU = n
             
